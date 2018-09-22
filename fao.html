@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="cena.css" />
+        
+  <head>
+    <meta charset="utf-8">
+    <title>じゃんけん</title>
+</head>
+
+
+<body>
+ <div class="haikei">
+
+    <div class="saisyo">
+        <h1>John Cena's JANKEN</h1>
+        <!-- <div style="margin-bottom:50px"></div> -->
+    <div class="img">
+            <a onClick="sound()"><img class="buruburu" src="John-Cena-Logo-PNG.png" alt=""><a/>
+        <img class="buruburu2" src="janken-battle-arena-logo.png" alt="">
+        <audio id="sound-file" preload="auto">
+                <source src="yumi.mp3" type="audio/mp3">
+        </audio>
+    </div>
+    </div>
+         <div class="video-container">
+                <video class="" controls autoplay muted loop>
+                <source src="HIS NAME IS JOHN CENA.mp4" type=""></video>
+         </div>
+         <div class="saa">
+             <h1>さあ、じゃんけんだ！！</h1>
+         </div>
+<div class="ume">
+    <div id="message1" >
+        <h1>相手: ? ? ? ?</h1>
+     </div>
+    
+     <div id="message2" >
+        <h1>結果:? ? ? ?</h1>
+     </div>
+
+
+    <form>
+        <select id="janken">
+            <option>グー</option>
+            <option>チョキ</option>
+            <option>パー</option>
+            <option>John Cena</option>
+        </select>
+        <input type="button" value="これで勝負する" onclick="myGame()">
+    </form>
+</div>
+    </div>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+<script>
+    function myGame() {
+        // 自分が選択したじゃんけんの手
+        var myte = document.getElementById("janken").selectedIndex;
+        // CPUのじゃんけんの手の番号
+        var cpunum = Math.floor(Math.random()*4);
+        // CPUのじゃんけんの手
+        var cpuhand;
+        // 判定
+        var judge;
+
+        if(cpunum == 0) {
+            cpuhand = "グー";
+        } else if(cpunum == 1) {
+            cpuhand = "チョキ";
+        } else if(cpunum == 2) {
+            cpuhand = "パー";     
+        } else if(cpunum == 3) {
+            cpuhand = "John Cena";
+        }
+
+        if(myte == 0 && cpunum == 1) {
+            judge = "あなたの勝ち";
+        } else if(myte == 1 && cpunum == 2) {
+            judge = "あなたの勝ち";
+        } else if(myte == 2 && cpunum == 0) {
+            judge = "あなたの勝ち";
+        } else if(myte == 3 && cpunum == 0) {
+            judge = "あなたの勝ち";
+        } else if(myte == 3 && cpunum == 1) {
+            judge = "あなたの勝ち";
+        } else if(myte == 3 && cpunum == 2) {
+            judge = "あなたの勝ち";
+        } else if(myte == 3 && cpunum == 3) {
+            judge ="John Cena";
+        } else if(myte == cpunum) {
+            judge = "ひきわけ";
+        } else {
+            judge = "あなたの負け";
+        }
+
+        document.getElementById("message1").innerHTML = "<h1>相手: " + cpuhand + "</h1>";
+        document.getElementById("message2").innerHTML = "<h1>結果: " + judge + "</h1>";
+    }
+
+
+        
+
+    </script>
+    
+</body>
+</html>
